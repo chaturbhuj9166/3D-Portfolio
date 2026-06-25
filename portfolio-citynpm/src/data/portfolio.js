@@ -3,6 +3,16 @@
 //  Edit the CONTENT below to make this portfolio your own.
 // ===========================================================================
 
+// ---- Building 3D models (GLB) ---------------------------------------------
+import aboutModel from '../assets/cherkasy_9-floors_appartments.glb?url'
+import skillsModel from '../assets/pivdennyy_city_9-floor_panel_building.glb?url'
+import experienceModel from '../assets/office_buildingapartment_building.glb?url'
+import projectsModel from '../assets/csd_building.glb?url'
+import contactModel from '../assets/mcallen_building.glb?url'
+import waterModel from '../assets/water_animation.glb?url'
+
+export const WATER_MODEL = waterModel
+
 // ---- Personal / portfolio content ----------------------------------------
 export const PROFILE = {
   name: 'Chaturbhuj Joshi',
@@ -136,6 +146,9 @@ export const BLOCK_CENTERS = [-45, -15, 15, 45]
 
 // The five interactive section buildings. `position` is [x, z]; rotation in
 // radians faces the building's entrance toward the nearest road.
+// `model`/`fit` load a GLB at that plot (fit = target width in world units).
+// `footprint`/`height` are pre-computed from the scaled model so the collider
+// and floating label line up with the mesh.
 export const BUILDINGS = [
   {
     id: 'about',
@@ -145,8 +158,11 @@ export const BUILDINGS = [
     accent: '#7cc4ff',
     position: [-15, -15],
     rotation: Math.PI * 0.25,
-    height: 16,
-    footprint: [11, 11],
+    model: aboutModel,
+    scale: 0.6422,
+    offset: [-0.37, -3.44, 0],
+    height: 19.6,
+    footprint: [8.6, 13],
   },
   {
     id: 'skills',
@@ -156,8 +172,11 @@ export const BUILDINGS = [
     accent: '#c4b5fd',
     position: [15, -15],
     rotation: -Math.PI * 0.25,
-    height: 22,
-    footprint: [11, 11],
+    model: skillsModel,
+    scale: 0.5476,
+    offset: [-0.24, -3.17, 0],
+    height: 18,
+    footprint: [8.3, 13],
   },
   {
     id: 'experience',
@@ -167,8 +186,11 @@ export const BUILDINGS = [
     accent: '#5eead4',
     position: [-15, 15],
     rotation: Math.PI * 0.75,
-    height: 19,
-    footprint: [11, 11],
+    model: experienceModel,
+    scale: 0.3302,
+    offset: [-0.83, 2.76, 4.52],
+    height: 19.4,
+    footprint: [10.2, 13],
   },
   {
     id: 'projects',
@@ -178,8 +200,11 @@ export const BUILDINGS = [
     accent: '#fcd34d',
     position: [15, 15],
     rotation: -Math.PI * 0.75,
-    height: 25,
-    footprint: [11, 11],
+    model: projectsModel,
+    scale: 0.1474,
+    offset: [-2.85, 0.06, -2.37],
+    height: 30.7,
+    footprint: [13, 9.1],
   },
   {
     id: 'contact',
@@ -189,8 +214,11 @@ export const BUILDINGS = [
     accent: '#fca5a5',
     position: [45, 15],
     rotation: Math.PI,
-    height: 14,
-    footprint: [11, 11],
+    model: contactModel,
+    scale: 0.1338,
+    offset: [-0.25, 0.23, -0.32],
+    height: 10,
+    footprint: [13, 13],
   },
 ]
 

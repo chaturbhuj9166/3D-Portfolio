@@ -6,12 +6,14 @@ import Ground from './world/Ground'
 import Roads from './world/Roads'
 import Decorations from './world/Decorations'
 import Parks from './world/Parks'
-import Trees from './world/Trees'
 import GenericBuildings from './world/GenericBuildings'
 import SectionBuilding from './world/SectionBuilding'
+import BuildingGLB from './world/BuildingGLB'
+import TreesGLB from './world/TreesGLB'
 import Player from './player/Player'
 import ExportGLB from './utils/ExportGLB'
-import { BUILDINGS } from '../data/portfolio'
+import { BUILDINGS, WATER_MODEL } from '../data/portfolio'
+import { LAKES } from '../data/world'
 import { useGame } from '../store/useGame'
 
 // Sun direction (shared by the Sky, the sun disc and the key light in day mode).
@@ -72,10 +74,21 @@ export default function Experience() {
       <Roads />
       <GenericBuildings />
       <Parks />
-      <Trees />
+      <Suspense fallback={null}>
+        <TreesGLB />
+      </Suspense>
       <Decorations />
       {BUILDINGS.map((b) => (
         <SectionBuilding key={b.id} data={b} />
+      ))}
+
+      {/* animated water ponds */}
+      {LAKES.map((l) => (
+        <group key={l.key} position={[l.x, 0.06, l.z]}>
+          <Suspense fallback={null}>
+            <BuildingGLB url={WATER_MODEL} scale={l.scale} offset={l.offset} play />
+          </Suspense>
+        </group>
       ))}
 
       <Player />

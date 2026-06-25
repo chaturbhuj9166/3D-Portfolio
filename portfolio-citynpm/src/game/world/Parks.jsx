@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { PARKS, makeRng } from '../../data/portfolio'
+import { isLakePark } from '../../data/world'
 import { Bush, Flower, GrassField } from '../props/Nature'
 
 const FLOWER_COLORS = ['#ff5c8a', '#ffd23f', '#7c5cff', '#ff8a3d', '#ffffff']
@@ -52,22 +53,24 @@ export default function Parks() {
             <Flower key={i} position={[f[0], 0.25, f[2]]} color={f[3]} />
           ))}
 
-          {/* glowing fountain */}
-          <group position={[p.cx, 0.25, p.cz]}>
-            <mesh position={[0, 0.4, 0]} castShadow>
-              <cylinderGeometry args={[1.8, 2, 0.8, 16]} />
-              <meshStandardMaterial color="#6b7280" roughness={0.8} />
-            </mesh>
-            <mesh position={[0, 0.85, 0]}>
-              <cylinderGeometry args={[1.5, 1.5, 0.25, 16]} />
-              <meshStandardMaterial color="#7cc4ff" emissive="#3aa0ff" emissiveIntensity={1.2} />
-            </mesh>
-            <mesh position={[0, 1.6, 0]}>
-              <cylinderGeometry args={[0.18, 0.25, 1.4, 8]} />
-              <meshStandardMaterial color="#6b7280" />
-            </mesh>
-            <pointLight position={[0, 1.4, 0]} color="#5ab0ff" intensity={14} distance={16} decay={2} />
-          </group>
+          {/* glowing fountain (skipped where the animated water pond goes) */}
+          {!isLakePark(p.cx, p.cz) && (
+            <group position={[p.cx, 0.25, p.cz]}>
+              <mesh position={[0, 0.4, 0]} castShadow>
+                <cylinderGeometry args={[1.8, 2, 0.8, 16]} />
+                <meshStandardMaterial color="#6b7280" roughness={0.8} />
+              </mesh>
+              <mesh position={[0, 0.85, 0]}>
+                <cylinderGeometry args={[1.5, 1.5, 0.25, 16]} />
+                <meshStandardMaterial color="#7cc4ff" emissive="#3aa0ff" emissiveIntensity={1.2} />
+              </mesh>
+              <mesh position={[0, 1.6, 0]}>
+                <cylinderGeometry args={[0.18, 0.25, 1.4, 8]} />
+                <meshStandardMaterial color="#6b7280" />
+              </mesh>
+              <pointLight position={[0, 1.4, 0]} color="#5ab0ff" intensity={14} distance={16} decay={2} />
+            </group>
+          )}
         </group>
       ))}
     </group>

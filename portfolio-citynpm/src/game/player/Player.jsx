@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import Character from './Character'
+import CharacterGLB from './CharacterGLB'
 import { useKeyboard } from './useKeyboard'
 import { useGame } from '../../store/useGame'
 import { BUILDINGS, CITY, SPAWN } from '../../data/portfolio'
@@ -228,7 +228,7 @@ export default function Player() {
 
   return (
     <group ref={group}>
-      <Character anim={anim} />
+      <CharacterGLB anim={anim} />
       {/* soft warm rim light that travels with the player */}
       <pointLight position={[0, 2.4, 0]} color="#ffd9a0" intensity={6} distance={9} decay={2} />
     </group>

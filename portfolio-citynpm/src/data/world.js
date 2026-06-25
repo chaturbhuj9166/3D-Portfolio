@@ -42,10 +42,9 @@ BLOCK_CENTERS.forEach((cx) => {
     if (PARK_SET.has([cx, cz].join(','))) return
     const rng = makeRng(7000 + cx * 13 + cz * 31)
     const e = CITY.blockInner / 2 - 1.5
+    // two trees per block (opposite corners) to keep the city from feeling crowded
     const corners = [
       [cx - e, cz - e],
-      [cx + e, cz - e],
-      [cx - e, cz + e],
       [cx + e, cz + e],
     ]
     corners.forEach(([tx, tz], i) =>
@@ -55,7 +54,7 @@ BLOCK_CENTERS.forEach((cx) => {
 })
 PARKS.forEach(([cx, cz], pi) => {
   const rng = makeRng(500 + pi * 41)
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 4; i++) {
     TREES.push({
       key: `tp${pi}_${i}`,
       x: cx + (rng() - 0.5) * 16,
@@ -114,6 +113,13 @@ BLOCK_CENTERS.forEach((cx) => {
 // ---- Fountains (park centres) ---------------------------------------------
 export const FOUNTAINS = PARKS.map(([cx, cz], pi) => ({ key: `f${pi}`, x: cx, z: cz }))
 
+// ---- Animated water pond (placed in one park instead of a fountain) -------
+export const LAKES = [
+  { key: 'lake0', x: -45, z: 45, radius: 12, scale: 0.27, offset: [0, 0.55, 0] },
+]
+const LAKE_SET = new Set(LAKES.map((l) => `${l.x},${l.z}`))
+export const isLakePark = (cx, cz) => LAKE_SET.has(`${cx},${cz}`)
+
 // ---- Collider sets ---------------------------------------------------------
 // Rotated boxes: section buildings (45°) + axis-aligned generic buildings.
 export const BOX_COLLIDERS = [
@@ -134,5 +140,6 @@ export const CIRCLE_COLLIDERS = [
   ...TRAFFIC.map((t) => ({ x: t.x, z: t.z, radius: 0.4 })),
   ...SIGNS.map((s) => ({ x: s.x, z: s.z, radius: 0.35 })),
   ...BENCHES.map((b) => ({ x: b.x, z: b.z, radius: 1.1 })),
-  ...FOUNTAINS.map((f) => ({ x: f.x, z: f.z, radius: 2.3 })),
+  ...FOUNTAINS.filter((f) => !isLakePark(f.x, f.z)).map((f) => ({ x: f.x, z: f.z, radius: 2.3 })),
+  ...LAKES.map((l) => ({ x: l.x, z: l.z, radius: l.radius })),
 ]
