@@ -28,6 +28,7 @@ export default function Intro() {
           ▶ Enter the City
         </button>
         <p className="intro-tip">Hold the left mouse button and drag to rotate the camera</p>
+        <p>Made with ❤️ by Chaturbhuj Joshi</p>
       </div>
     </div>
   )
