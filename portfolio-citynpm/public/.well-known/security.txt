@@ -1,0 +1,5 @@
+# https://chaturbhujportfolio.in/.well-known/security.txt
+Contact: mailto:joshichaturbhuj2@gmail.com
+Expires: 2027-06-30T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://chaturbhujportfolio.in/.well-known/security.txt

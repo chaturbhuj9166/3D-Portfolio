@@ -104,14 +104,16 @@ export default function Player() {
     const k = keys.current
     const paused = !!useGame.getState().openBuilding
 
-    // --- desired movement relative to camera yaw ---
+    // --- camera-relative movement; the character turns to face where it walks ---
+    //   up    -> into the screen (away from camera)
+    //   down  -> toward the camera (character turns around, face visible)
+    //   left/right -> screen left / right
     const sin = Math.sin(yaw.current)
     const cos = Math.cos(yaw.current)
     const fwd = new THREE.Vector3(sin, 0, cos)
     const right = new THREE.Vector3(-cos, 0, sin)
-
-    let ix = 0
     let iz = 0
+    let ix = 0
     if (!paused) {
       if (k.forward) iz += 1
       if (k.back) iz -= 1
@@ -198,13 +200,22 @@ export default function Player() {
     g.position.x = THREE.MathUtils.clamp(g.position.x, -b, b)
     g.position.z = THREE.MathUtils.clamp(g.position.z, -b, b)
 
-    // --- face movement direction ---
+    // --- character turns to face its movement direction (down => faces camera) ---
     if (moving) {
       faceYaw.current = Math.atan2(vel.current.x, vel.current.z)
     }
     let diff = faceYaw.current - g.rotation.y
     diff = Math.atan2(Math.sin(diff), Math.cos(diff))
     g.rotation.y += diff * Math.min(1, dt * 12)
+
+    // --- camera auto-follows behind the player when walking forward / turning,
+    //     so no mouse is needed. It stays put when idle, strafing or backing up
+    //     (so pressing down keeps the character's face toward the camera). ---
+    if (moving && iz > 0) {
+      let cdiff = faceYaw.current - yaw.current
+      cdiff = Math.atan2(Math.sin(cdiff), Math.cos(cdiff))
+      yaw.current += cdiff * Math.min(1, dt * 3)
+    }
 
     // --- animation state ---
     anim.current.speed = vel.current.length()
@@ -214,7 +225,7 @@ export default function Player() {
     else if (anim.current.speed > 0.4) anim.current.mode = 'walk'
     else anim.current.mode = 'idle'
 
-    // --- third person camera follow ---
+    // --- third person camera follow (yaw is only changed by mouse-drag) ---
     _target.set(g.position.x, g.position.y + 1.6, g.position.z)
     const cp = Math.cos(pitch.current)
     _camPos.set(

@@ -1,13 +1,479 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ============================ CORE SEO ============================ -->
+    <title>Chaturbhuj Joshi · Full Stack &amp; Flutter Developer | 3D Portfolio</title>
+    <meta
+      name="description"
+      content="Chaturbhuj Joshi — Full Stack &amp; Flutter developer in Jaipur, India. I build MERN web apps, Flutter mobile apps and interactive 3D WebGL experiences with React Three Fiber. Explore my walkable 3D portfolio city."
+    />
+    <meta
+      name="keywords"
+      content="Chaturbhuj Joshi, full stack developer, Flutter developer, MERN stack developer, React developer, React Three Fiber developer, Three.js developer, Node.js developer, WebGL portfolio, interactive 3D portfolio, web developer Jaipur, software engineer India, JavaScript developer"
+    />
+    <link rel="canonical" href="https://chaturbhujportfolio.in/" />
+    <meta name="author" content="Chaturbhuj Joshi" />
+    <meta name="publisher" content="Chaturbhuj Joshi" />
+    <meta name="copyright" content="Chaturbhuj Joshi" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- ===================== GEO / ENTITY HINTS ===================== -->
+    <meta name="geo.region" content="IN-RJ" />
+    <meta name="geo.placename" content="Jaipur, Rajasthan, India" />
+    <meta name="geo.position" content="26.9124;75.7873" />
+    <meta name="ICBM" content="26.9124, 75.7873" />
+
+    <!-- ===================== UA / RENDERING / SECURITY ===================== -->
+    <meta name="theme-color" content="#0a0e1a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f7ff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="application-name" content="Chaturbhuj Joshi" />
+    <meta name="generator" content="React + Vite + React Three Fiber" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+    <!-- ===================== ICONS / PWA ===================== -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-citynpm</title>
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#7cc4ff" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Chaturbhuj Joshi" />
+    <meta name="msapplication-TileColor" content="#0a0e1a" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+
+    <!-- ===================== PERFORMANCE RESOURCE HINTS ===================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preload" as="image" href="/favicon.png" />
+
+    <!-- ===================== OPEN GRAPH (FB / LinkedIn / WhatsApp / Discord / Telegram / Slack) ===================== -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Chaturbhuj Joshi — 3D Portfolio" />
+    <meta property="og:title" content="Chaturbhuj Joshi · Full Stack &amp; Flutter Developer" />
+    <meta
+      property="og:description"
+      content="Walk through my interactive 3D portfolio city. Full Stack &amp; Flutter developer building MERN web apps, Flutter apps and WebGL experiences with React Three Fiber."
+    />
+    <meta property="og:url" content="https://chaturbhujportfolio.in/" />
+    <meta property="og:image" content="https://chaturbhujportfolio.in/og-image.png" />
+    <meta property="og:image:secure_url" content="https://chaturbhujportfolio.in/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Chaturbhuj Joshi — interactive 3D portfolio city built with React Three Fiber" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Chaturbhuj" />
+    <meta property="profile:last_name" content="Joshi" />
+    <meta property="profile:gender" content="male" />
+
+    <!-- ===================== TWITTER / X ===================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chaturbhuj Joshi · Full Stack &amp; Flutter Developer" />
+    <meta
+      name="twitter:description"
+      content="Interactive 3D portfolio city built with React Three Fiber by Full Stack &amp; Flutter developer Chaturbhuj Joshi."
+    />
+    <meta name="twitter:image" content="https://chaturbhujportfolio.in/og-image.png" />
+    <meta name="twitter:image:alt" content="Chaturbhuj Joshi — interactive 3D portfolio city" />
+
+    <!-- ===================== STRUCTURED DATA (Schema.org @graph) ===================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://chaturbhujportfolio.in/#website",
+            "url": "https://chaturbhujportfolio.in/",
+            "name": "Chaturbhuj Joshi — 3D Portfolio",
+            "alternateName": "Chaturbhuj Joshi Portfolio",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://chaturbhujportfolio.in/#person" },
+            "copyrightHolder": { "@id": "https://chaturbhujportfolio.in/#person" }
+          },
+          {
+            "@type": ["ProfilePage", "WebPage"],
+            "@id": "https://chaturbhujportfolio.in/#webpage",
+            "url": "https://chaturbhujportfolio.in/",
+            "name": "Chaturbhuj Joshi · Full Stack & Flutter Developer | 3D Portfolio",
+            "description": "Interactive 3D WebGL portfolio of Chaturbhuj Joshi, a Full Stack & Flutter developer from Jaipur, India.",
+            "isPartOf": { "@id": "https://chaturbhujportfolio.in/#website" },
+            "about": { "@id": "https://chaturbhujportfolio.in/#person" },
+            "mainEntity": { "@id": "https://chaturbhujportfolio.in/#person" },
+            "primaryImageOfPage": { "@id": "https://chaturbhujportfolio.in/#primaryimage" },
+            "image": { "@id": "https://chaturbhujportfolio.in/#primaryimage" },
+            "inLanguage": "en",
+            "datePublished": "2026-01-01",
+            "dateModified": "2026-06-30",
+            "breadcrumb": { "@id": "https://chaturbhujportfolio.in/#breadcrumb" }
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://chaturbhujportfolio.in/#primaryimage",
+            "url": "https://chaturbhujportfolio.in/og-image.png",
+            "contentUrl": "https://chaturbhujportfolio.in/og-image.png",
+            "width": 1200,
+            "height": 630,
+            "caption": "Chaturbhuj Joshi — interactive 3D portfolio city"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://chaturbhujportfolio.in/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://chaturbhujportfolio.in/"
+              }
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://chaturbhujportfolio.in/#person",
+            "name": "Chaturbhuj Joshi",
+            "alternateName": "Chaturbhuj",
+            "url": "https://chaturbhujportfolio.in/",
+            "image": "https://chaturbhujportfolio.in/og-image.png",
+            "jobTitle": "Full Stack & Flutter Developer",
+            "description": "Full Stack & Flutter developer building MERN web applications, Flutter mobile apps and interactive 3D WebGL experiences with React Three Fiber and Three.js.",
+            "email": "mailto:joshichaturbhuj2@gmail.com",
+            "telephone": "+91-9166423954",
+            "gender": "Male",
+            "nationality": "Indian",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Jaipur",
+              "addressRegion": "Rajasthan",
+              "addressCountry": "IN"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Zepfy Studio",
+              "url": "https://zepfy.com/"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Maharaja Ganga Singh University",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bikaner",
+                "addressRegion": "Rajasthan",
+                "addressCountry": "IN"
+              }
+            },
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Full Stack & Flutter Developer",
+              "occupationLocation": {
+                "@type": "City",
+                "name": "Jaipur, Rajasthan, India"
+              },
+              "skills": "React, React Three Fiber, Three.js, WebGL, Node.js, Express.js, MongoDB, Flutter, Dart, JavaScript, Electron.js, Shopify, Firebase, Tailwind CSS, Vite"
+            },
+            "knowsAbout": [
+              "Full-Stack Web Development",
+              "MERN Stack",
+              "React",
+              "React Three Fiber",
+              "Three.js",
+              "WebGL",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
+              "Flutter",
+              "Dart",
+              "JavaScript",
+              "Electron.js",
+              "Shopify",
+              "Liquid",
+              "Firebase",
+              "Tailwind CSS",
+              "Vite",
+              "REST APIs",
+              "3D Web Development",
+              "Mobile App Development"
+            ],
+            "knowsLanguage": [
+              { "@type": "Language", "name": "Hindi" },
+              { "@type": "Language", "name": "English" }
+            ],
+            "sameAs": [
+              "https://github.com/chaturbhuj9166",
+              "https://www.linkedin.com/in/chaturbhuj-joshi"
+            ]
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "MERN Stack E-commerce",
+            "description": "A full e-commerce web application with product browsing, cart, secure checkout and admin product & order management.",
+            "url": "https://new-ecommerce-nhr3tjt6c-chaturbhuj-joshis-projects.vercel.app/",
+            "keywords": "React, Node.js, Express.js, MongoDB, MERN",
+            "author": { "@id": "https://chaturbhujportfolio.in/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Desktop AI Assistant",
+            "description": "An Electron.js + Ollama desktop assistant that processes natural-language commands to open apps, search the web and automate system tasks.",
+            "url": "https://github.com/chaturbhuj9166/Dasktop-AI-Electron.js.git",
+            "keywords": "Electron.js, Ollama, Node.js, AI",
+            "author": { "@id": "https://chaturbhujportfolio.in/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Employee Attendance Management System",
+            "description": "A full-stack Flutter + Node.js attendance tracker with role-based auth, push notifications and admin controls.",
+            "url": "https://github.com/chaturbhuj9166/New-App.git",
+            "keywords": "Flutter, Node.js, MongoDB, Firebase",
+            "author": { "@id": "https://chaturbhujportfolio.in/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Google Search API",
+            "description": "A Python + FLAN-T5 NLP search API that fetches real-time results and refines answers for general-knowledge questions.",
+            "url": "https://github.com/chaturbhuj9166/Google-Search-Api-Py.git",
+            "keywords": "Python, FLAN-T5, NLP",
+            "author": { "@id": "https://chaturbhujportfolio.in/#person" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://chaturbhujportfolio.in/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Who is Chaturbhuj Joshi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chaturbhuj Joshi is a Full Stack & Flutter developer based in Jaipur, Rajasthan, India. He builds MERN web applications, Flutter mobile apps and interactive 3D WebGL experiences using React Three Fiber and Three.js."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What technologies does Chaturbhuj Joshi work with?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "He works with React, React Three Fiber, Three.js, Node.js, Express.js, MongoDB, Flutter, Dart, JavaScript, Electron.js, Shopify, Firebase, Tailwind CSS and Vite."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is this 3D portfolio?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It is a walkable 3D city built with React Three Fiber where visitors control a character and enter buildings to explore the About, Skills, Experience, Projects and Contact sections."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      /* visually-hidden but available to crawlers & screen readers */
+      .sr-only {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- ===================== CRAWLABLE / ACCESSIBLE CONTENT =====================
+         The live experience is a WebGL 3D world that search engines and AI
+         crawlers cannot read. This semantic, accessible mirror exposes the same
+         information for indexing and assistive technology. -->
+    <main class="sr-only" id="seo-content">
+      <header>
+        <h1>Chaturbhuj Joshi — Full Stack &amp; Flutter Developer</h1>
+        <p>
+          Interactive 3D portfolio of Chaturbhuj Joshi, a Full Stack &amp; Flutter
+          developer from Jaipur, Rajasthan, India, specialising in the MERN stack,
+          Flutter and 3D web experiences with React Three Fiber and Three.js.
+        </p>
+        <nav aria-label="Sections">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About</h2>
+        <p>
+          I am Chaturbhuj Joshi, a Full Stack &amp; Flutter developer who builds
+          production web applications, Shopify stores and cross-platform mobile
+          apps. I work end to end across the MERN stack (MongoDB, Express.js,
+          React.js, Node.js) and Flutter, with a focus on responsive interfaces,
+          clean APIs, performance and delightful user experience. I also build
+          interactive 3D experiences for the web using React Three Fiber and
+          Three.js — this portfolio itself is a walkable 3D city.
+        </p>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h">Skills &amp; Technologies</h2>
+        <h3>Languages</h3>
+        <ul>
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Dart</li><li>Liquid</li>
+        </ul>
+        <h3>Frameworks &amp; Libraries</h3>
+        <ul>
+          <li>React</li><li>React Native</li><li>Node.js</li><li>Express.js</li>
+          <li>Flutter</li><li>Tailwind CSS</li><li>Electron.js</li>
+          <li>React Three Fiber</li><li>Three.js</li>
+        </ul>
+        <h3>Tools &amp; Platforms</h3>
+        <ul>
+          <li>Git</li><li>GitHub</li><li>Vercel</li><li>Render</li><li>Figma</li>
+          <li>Firebase</li><li>Android Studio</li><li>Shopify</li><li>Vite</li>
+        </ul>
+        <h3>Database</h3>
+        <ul><li>MongoDB</li></ul>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-h">
+        <h2 id="experience-h">Experience</h2>
+        <article>
+          <h3>Full Stack &amp; Flutter Developer Intern — Zepfy Studio</h3>
+          <p>
+            Building web applications, Shopify stores and Flutter mobile apps;
+            implementing responsive UIs, REST APIs and client-focused features.
+          </p>
+        </article>
+        <article>
+          <h3>Full Stack Developer Intern — Full Stack Learning</h3>
+          <p>
+            Completed a four-month internship gaining hands-on full-stack
+            experience and shipping features with the MERN stack.
+          </p>
+        </article>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-h">
+        <h2 id="projects-h">Projects</h2>
+        <article>
+          <h3>MERN Stack E-commerce</h3>
+          <p>
+            A full e-commerce web application: product browsing, cart, secure
+            authentication and checkout, with admin-level product and order
+            management. Built with React, Node.js, Express.js and MongoDB.
+          </p>
+        </article>
+        <article>
+          <h3>Desktop AI Assistant</h3>
+          <p>
+            An AI desktop assistant built with Electron.js and Ollama that
+            processes natural-language commands to open applications, browse
+            websites, run searches and automate system tasks.
+          </p>
+        </article>
+        <article>
+          <h3>Employee Attendance Management System</h3>
+          <p>
+            A full-stack attendance tracker built with Flutter, Node.js, MongoDB
+            and Firebase featuring role-based authentication, attendance
+            management, push notifications and admin controls.
+          </p>
+        </article>
+        <article>
+          <h3>Google Search API</h3>
+          <p>
+            A search API built with Python and FLAN-T5 that fetches real-time
+            results, refines answers with NLP and handles general-knowledge
+            questions.
+          </p>
+        </article>
+      </section>
+
+      <section id="services" aria-labelledby="services-h">
+        <h2 id="services-h">Services</h2>
+        <ul>
+          <li>Full-stack web application development (MERN)</li>
+          <li>Cross-platform mobile app development (Flutter)</li>
+          <li>Interactive 3D &amp; WebGL experiences (React Three Fiber, Three.js)</li>
+          <li>Shopify store development (Liquid)</li>
+          <li>REST API design and backend development (Node.js, Express, MongoDB)</li>
+        </ul>
+      </section>
+
+      <section id="education" aria-labelledby="education-h">
+        <h2 id="education-h">Education</h2>
+        <p>
+          Bachelor of Commerce (B.Com) — Maharaja Ganga Singh University, Bikaner,
+          Rajasthan, India (2022–2025).
+        </p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact</h2>
+        <address>
+          Email:
+          <a href="mailto:joshichaturbhuj2@gmail.com">joshichaturbhuj2@gmail.com</a>.
+          Phone: +91 9166423954. Based in Jaipur, Rajasthan, India.
+          GitHub:
+          <a href="https://github.com/chaturbhuj9166" rel="me">github.com/chaturbhuj9166</a>.
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/chaturbhuj-joshi" rel="me">linkedin.com/in/chaturbhuj-joshi</a>.
+        </address>
+      </section>
+
+      <section aria-labelledby="faq-h">
+        <h2 id="faq-h">Frequently Asked Questions</h2>
+        <h3>Who is Chaturbhuj Joshi?</h3>
+        <p>
+          Chaturbhuj Joshi is a Full Stack &amp; Flutter developer based in Jaipur,
+          India, who builds MERN web apps, Flutter mobile apps and interactive 3D
+          WebGL experiences with React Three Fiber and Three.js.
+        </p>
+        <h3>What technologies does Chaturbhuj Joshi work with?</h3>
+        <p>
+          React, React Three Fiber, Three.js, Node.js, Express.js, MongoDB,
+          Flutter, Dart, JavaScript, Electron.js, Shopify, Firebase, Tailwind CSS
+          and Vite.
+        </p>
+        <h3>What is this 3D portfolio?</h3>
+        <p>
+          A walkable 3D city built with React Three Fiber where visitors control a
+          character and enter buildings to explore the About, Skills, Experience,
+          Projects and Contact sections.
+        </p>
+      </section>
+
+      <footer>
+        <p>© 2026 Chaturbhuj Joshi. Designed &amp; developed by Chaturbhuj Joshi.</p>
+      </footer>
+    </main>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

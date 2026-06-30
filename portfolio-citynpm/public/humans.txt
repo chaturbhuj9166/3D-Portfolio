@@ -1,0 +1,17 @@
+/* TEAM */
+  Developer: Chaturbhuj Joshi
+  Role: Full Stack & Flutter Developer
+  Location: Jaipur, Rajasthan, India
+  Contact: joshichaturbhuj2@gmail.com
+  GitHub: https://github.com/chaturbhuj9166
+  LinkedIn: https://www.linkedin.com/in/chaturbhuj-joshi
+
+/* SITE */
+  Last update: 2026/06/30
+  Language: English
+  Doctype: HTML5
+  Standards: HTML5, CSS3, ES2023
+
+/* TECHNOLOGY */
+  React, Vite, Three.js, React Three Fiber, drei, Zustand,
+  Node.js, Express, MongoDB, Flutter, Firebase
