@@ -7,6 +7,7 @@ import treeUrl from '../../assets/tree_gn.glb?url'
 useGLTF.preload(treeUrl)
 
 const TREE_FIT = 6.5 // target tree height in world units (before per-tree scale)
+const ROOT_SINK = 0.22 // buries the root flare slightly so it doesn't float above the grass
 
 // The model's materials use the unsupported spec-gloss extension (textures
 // don't load → white), so we assign solid colours per sub-mesh by name.
@@ -69,7 +70,7 @@ function TreePart({ geometry, material, local, baseScale, baseY }) {
       const s = baseScale * t.scale
       // small deterministic yaw variation so the trees aren't all identical
       quat.setFromAxisAngle(new THREE.Vector3(0, 1, 0), (i % 8) * 0.78)
-      pos.set(t.x, 0.25 + baseY * t.scale, t.z)
+      pos.set(t.x, 0.25 + baseY * t.scale - ROOT_SINK, t.z)
       scl.set(s, s, s)
       treeM.compose(pos, quat, scl)
       inst.multiplyMatrices(treeM, local)
@@ -85,7 +86,6 @@ function TreePart({ geometry, material, local, baseScale, baseY }) {
       args={[geometry, material, TREES.length]}
       castShadow={false}
       receiveShadow={false}
-      frustumCulled={false}
     />
   )
 }

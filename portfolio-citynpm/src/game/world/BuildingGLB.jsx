@@ -13,7 +13,6 @@ export default function BuildingGLB({ url, scale = 1, offset = [0, 0, 0], play =
       if (o.isMesh) {
         o.castShadow = true
         o.receiveShadow = true
-        o.frustumCulled = false
       }
     })
     return m

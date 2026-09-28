@@ -37,7 +37,7 @@ export default function Experience() {
           </mesh>
           {/* image-based reflections (loads async; isolated so the scene never blanks) */}
           <Suspense fallback={null}>
-            <Environment preset="park" background={false} />
+            <Environment preset="park" background={false} resolution={128} />
           </Suspense>
         </>
       ) : (
@@ -55,13 +55,13 @@ export default function Experience() {
         intensity={day ? 2.6 : 0.7}
         color={day ? '#fff4e0' : '#9fb4ff'}
         castShadow
-        shadow-mapSize={[2048, 2048]}
+        shadow-mapSize={[1024, 1024]}
         shadow-camera-near={1}
-        shadow-camera-far={320}
-        shadow-camera-left={-110}
-        shadow-camera-right={110}
-        shadow-camera-top={110}
-        shadow-camera-bottom={-110}
+        shadow-camera-far={200}
+        shadow-camera-left={-70}
+        shadow-camera-right={70}
+        shadow-camera-top={70}
+        shadow-camera-bottom={-70}
         shadow-bias={-0.0005}
       />
       <hemisphereLight

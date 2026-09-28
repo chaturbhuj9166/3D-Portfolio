@@ -5,7 +5,7 @@ import CharacterGLB from './CharacterGLB'
 import { useKeyboard } from './useKeyboard'
 import { useGame } from '../../store/useGame'
 import { BUILDINGS, CITY, SPAWN } from '../../data/portfolio'
-import { BOX_COLLIDERS, CIRCLE_COLLIDERS } from '../../data/world'
+import { BOX_COLLIDERS, CIRCLE_COLLIDERS, groundHeightAt } from '../../data/world'
 
 const WALK = 5
 const RUN = 10
@@ -133,17 +133,11 @@ export default function Player() {
     g.position.x += vel.current.x * dt
     g.position.z += vel.current.z * dt
 
-    // --- jump + gravity ---
+    // --- jump (gravity + ground snap happen after XZ collision, below, so the
+    //     ground height at the player's FINAL x/z for this frame is used) ---
     if (anim.current.grounded && k.jump && !paused) {
       velY.current = JUMP_V
       anim.current.grounded = false
-    }
-    velY.current += GRAVITY * dt
-    g.position.y += velY.current * dt
-    if (g.position.y <= 0) {
-      g.position.y = 0
-      velY.current = 0
-      anim.current.grounded = true
     }
 
     // --- rotated-box collision (section + generic buildings) ---
@@ -181,6 +175,18 @@ export default function Player() {
         g.position.x += (dx / dist) * push
         g.position.z += (dz / dist) * push
       }
+    }
+
+    // --- gravity + ground snap (uses the ground height at the player's final
+    //     x/z this frame, so feet land on raised sidewalk slabs, not the base
+    //     grade under them) ---
+    const groundY = groundHeightAt(g.position.x, g.position.z)
+    velY.current += GRAVITY * dt
+    g.position.y += velY.current * dt
+    if (g.position.y <= groundY) {
+      g.position.y = groundY
+      velY.current = 0
+      anim.current.grounded = true
     }
 
     // --- nearest interactive building (proximity prompt) ---

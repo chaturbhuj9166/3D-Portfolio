@@ -33,7 +33,6 @@ export default function CharacterGLB({ anim }) {
     model.traverse((o) => {
       if (o.isMesh) {
         o.castShadow = true
-        o.frustumCulled = false
       }
       if (o.isBone) {
         const base = o.name.replace(/_\d+$/, '')
@@ -86,8 +85,8 @@ export default function CharacterGLB({ anim }) {
     if (!a.grounded) {
       // ---- jump / airborne tuck (legs only) ----
       const t = THREE.MathUtils.clamp(a.air, 0, 1)
-      set('LeftUpLeg', -0.5 - 0.4 * t)
-      set('RightUpLeg', -0.1 - 0.7 * t)
+      set('LeftUpLeg', 0.5 + 0.4 * t)
+      set('RightUpLeg', 0.1 + 0.7 * t)
       set('LeftLeg', 0.8 * t)
       set('RightLeg', 0.5 * t)
       set('Spine', 0.12)

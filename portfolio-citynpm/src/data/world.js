@@ -110,6 +110,22 @@ BLOCK_CENTERS.forEach((cx) => {
   })
 })
 
+// ---- Ground height ----------------------------------------------------------
+// Every block is a raised sidewalk slab (see world/Ground.jsx); roads sit at
+// base grade. The player (and anything else standing on the ground) needs to
+// follow this, otherwise feet sink into the slab wherever it's raised.
+export const SIDEWALK_Y = 0.25
+export function groundHeightAt(x, z) {
+  const half = CITY.blockInner / 2
+  for (const cx of BLOCK_CENTERS) {
+    if (Math.abs(x - cx) > half) continue
+    for (const cz of BLOCK_CENTERS) {
+      if (Math.abs(z - cz) <= half) return SIDEWALK_Y
+    }
+  }
+  return 0
+}
+
 // ---- Fountains (park centres) ---------------------------------------------
 export const FOUNTAINS = PARKS.map(([cx, cz], pi) => ({ key: `f${pi}`, x: cx, z: cz }))
 
