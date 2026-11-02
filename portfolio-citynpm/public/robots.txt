@@ -52,5 +52,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://www.chaturbhujportfolio.in/sitemap.xml
-Host: https://www.chaturbhujportfolio.in
+Sitemap: https://chaturbhujportfolio.in/sitemap.xml
