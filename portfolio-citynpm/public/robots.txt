@@ -1,4 +1,4 @@
-# https://chaturbhujportfolio.in/robots.txt
+# https://www.chaturbhujportfolio.in/robots.txt
 # Allow everything for all search and AI crawlers.
 
 User-agent: *
@@ -52,4 +52,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://chaturbhujportfolio.in/sitemap.xml
+Sitemap: https://www.chaturbhujportfolio.in/sitemap.xml

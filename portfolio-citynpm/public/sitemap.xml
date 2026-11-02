@@ -3,12 +3,12 @@
   xmlns="http://sitemaps.org/schemas/sitemap/0.9"
   xmlns:image="http://google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://chaturbhujportfolio.in/</loc>
+    <loc>https://www.chaturbhujportfolio.in/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://chaturbhujportfolio.in/og-image.png</image:loc>
+      <image:loc>https://www.chaturbhujportfolio.in/og-image.png</image:loc>
       <image:title>Best portfolio website in India & Jaipur — interactive 3D portfolio city</image:title>
     </image:image>
   </url>
